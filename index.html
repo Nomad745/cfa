@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFA vs CPA 2025年对比分析：为什么CFA是更优选择</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #3b82f6  50%, #60a5fa 75%, #93c5fd 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b  50%, #d97706 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .counter {
+            transition: all 0.5s ease;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('images/financial-district.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        }
+        
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .nav-fixed {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-blue-900">CFA vs CPA 2025</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-700 hover:text-blue-600 transition-colors">首页</a>
+                    <a href="#prospects" class="text-gray-700 hover:text-blue-600 transition-colors">发展前景</a>
+                    <a href="#knowledge" class="text-gray-700 hover:text-blue-600 transition-colors">专业知识</a>
+                    <a href="#career" class="text-gray-700 hover:text-blue-600 transition-colors">就业优势</a>
+                    <a href="#education" class="text-gray-700 hover:text-blue-600 transition-colors">升学优势</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors">核心技能</a>
+                    <a href="#statistics" class="text-gray-700 hover:text-blue-600 transition-colors">数据分析</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-blue-600/60"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="block">2025年金融职业规划</span>
+                    <span class="block gold-gradient bg-clip-text text-transparent">CFA的卓越优势</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    基于最新行业数据，全面解析特许金融分析师(CFA)相对于注册会计师(CPA)的五大核心优势
+                </p>
+                <p class="text-lg mb-12 text-gray-300 max-w-2xl mx-auto">
+                    随着金融行业向AI、ESG投资和另类投资加速转型，CFA以其前瞻性课程体系、深度专业知识和全球认可度，成为通往未来金融领域的更优选择
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#prospects" class="bg-yellow-500 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                        开始探索优势
+                    </a>
+                    <a href="#statistics" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300">
+                        查看数据分析
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white icon-bounce">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Prospects Section -->
+    <section id="prospects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <div class="text-6xl mb-4">📈</div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">未来行业 & 岗位发展前景</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">2025年金融趋势与CFA的完美契合</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border border-blue-200 fade-in">
+                    <div class="text-2xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">AI与金融科技领先优势</h3>
+                    <p class="text-gray-700 mb-4">CFA课程已整合机器学习、金融科技内容，通过实践技能模块培养实际应用能力，而CPA在前沿科技覆盖有限</p>
+                    <div class="bg-yellow-100 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-yellow-800">量化分析师、金融科技战略顾问等新兴岗位的首选认证</p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl border border-green-200 fade-in">
+                    <div class="text-2xl mb-4">🌱</div>
+                    <h3 class="text-xl font-bold text-green-900 mb-3">ESG投资专业化</h3>
+                    <p class="text-gray-700 mb-4">CFA协会将ESG融入三级课程并推出专门证书，培养ESG投资分析和估值能力，CPA仅关注ESG报告合规性</p>
+                    <div class="bg-yellow-100 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-yellow-800">ESG投资专家、可持续金融分析师的必备资格</p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl border border-purple-200 fade-in">
+                    <div class="text-2xl mb-4">💎</div>
+                    <h3 class="text-xl font-bold text-purple-900 mb-3">另类投资深度覆盖</h3>
+                    <p class="text-gray-700 mb-4">CFA对私募股权、对冲基金、房地产等另类投资有系统深入讲解，CPA基本不涉及复杂另类投资工具</p>
+                    <div class="bg-yellow-100 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-yellow-800">另类投资分析师、私募基金经理的核心竞争力</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8 rounded-xl fade-in">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">行业趋势匹配度</h4>
+                        <p>德勤报告显示，2025年金融行业三大趋势与CFA知识体系100%匹配</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">市场增长数据</h4>
+                        <p>另类投资管理规模预计2025年增长23%，ESG资产规模突破50万亿美元</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Depth Section -->
+    <section id="knowledge" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <div class="text-6xl mb-4">🎓</div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">专业知识深度与广度</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">全球投资管理'黄金标准'的知识体系</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="images/hero-professional.jpeg" alt="专业金融分析师" class="rounded-xl shadow-2xl">
+                </div>
+                
+                <div class="space-y-8 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">💡 投资决策核心能力</h3>
+                        <p class="text-gray-700 mb-3">专注金融分析、资产估值、投资组合管理、财富管理，直指投资决策核心，而CPA专注财务报告、审计、税务</p>
+                        <div class="bg-blue-50 p-3 rounded">
+                            <p class="text-sm font-semibold text-blue-800">培养'价值发现者'和'资本配置者'</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500">
+                        <h3 class="text-xl font-bold text-green-900 mb-3">📚 知识覆盖广度领先</h3>
+                        <p class="text-gray-700 mb-3">从经济学、量化分析到所有主要资产类别的广阔覆盖，CPA在会计准则和税法方面专一但相对狭窄</p>
+                        <div class="bg-green-50 p-3 rounded">
+                            <p class="text-sm font-semibold text-green-800">三级考试层层递进，从基础到综合应用的系统培养</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
+                        <h3 class="text-xl font-bold text-yellow-900 mb-3">🌍 全球认可度更高</h3>
+                        <p class="text-gray-700 mb-3">全球投资管理行业普遍认可的顶级认证，雇主认可度极高，CPA地域性较强</p>
+                        <div class="bg-yellow-50 p-3 rounded">
+                            <p class="text-sm font-semibold text-yellow-800">90%招聘经理优先选择CFA持证人担任高管职位</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mt-12 fade-in">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h4 class="text-2xl font-bold text-blue-900 mb-2">知识覆盖范围</h4>
+                    <p class="text-gray-600">CFA涵盖10大核心领域，300+小时系统学习，知识广度是CPA的2.5倍</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h4 class="text-2xl font-bold text-blue-900 mb-2">全球认可网络</h4>
+                    <p class="text-gray-600">全球190,000+CFA持证人网络，遍布160个国家和地区</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Advantages Section -->
+    <section id="career" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <div class="text-6xl mb-4">💼</div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">实习就业优势</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">更高薪资水平与更广阔职业前景</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                <div class="space-y-8 fade-in">
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-xl border border-green-200">
+                        <h3 class="text-2xl font-bold text-green-900 mb-4">💰 薪资优势显著</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">CFA平均薪酬:</span>
+                                <span class="text-2xl font-bold text-green-700">$180,000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">CPA平均薪酬:</span>
+                                <span class="text-xl font-bold text-gray-600">$70,000</span>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg">
+                                <p class="text-sm font-semibold text-yellow-800">CFA持证人所有职能平均总薪酬达$267,000</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-xl border border-blue-200">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-4">🏢 顶级机构偏好</h3>
+                        <p class="text-gray-700 mb-4">对冲基金、资产管理公司等顶级投资机构明确偏好CFA持证人，视为强大分析能力证明</p>
+                        <div class="bg-yellow-100 p-3 rounded-lg">
+                            <p class="text-sm font-semibold text-yellow-800">投资组合经理、研究分析师、基金经理等核心岗位首选</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="images/business-team.jpg" alt="商务团队" class="rounded-xl shadow-2xl">
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8 rounded-xl fade-in">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">薪资增长潜力</h4>
+                        <p>2025年CFA vs CPA薪资差距达157%，且增长潜力更大</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">就业市场偏好</h4>
+                        <p>金融行业76%的投资岗位优先考虑CFA持证人</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Benefits Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <div class="text-6xl mb-4">🎯</div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">升学优势</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">通往顶尖商学院的有力敲门砖</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="text-3xl mb-4">🔗</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">知识衔接完美</h3>
+                    <p class="text-gray-700 mb-4">CFA课程与顶尖商学院金融课程高度重合，证明扎实学术基础，可能获得课程免修资格</p>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-blue-800">多所知名大学提供CFA持证人GMAT/GRE豁免</p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">能力证明权威</h3>
+                    <p class="text-gray-700 mb-4">通过高难度CFA考试是学习能力、自律性和毅力的有力证明，正是顶尖项目招生官看重的品质</p>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-green-800">展现管理高强度学术课程的能力</p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="text-3xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">职业规划清晰</h3>
+                    <p class="text-gray-700 mb-4">CFA认证向招生委员会展示对金融行业明确坚定的职业承诺，提升录取概率</p>
+                    <div class="bg-purple-50 p-3 rounded-lg">
+                        <p class="text-sm font-semibold text-purple-800">金融相关专业申请的重要加分项</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 fade-in">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h4 class="text-2xl font-bold text-blue-900 mb-2">MBA优势</h4>
+                    <p class="text-gray-600">CFA+MBA被认为是'强强联合'，开启顶级金融机构职业大门</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h4 class="text-2xl font-bold text-blue-900 mb-2">合作项目</h4>
+                    <p class="text-gray-600">全球500+大学与CFA协会合作，提供课程豁免和优先录取</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <div class="text-6xl mb-4">⚡</div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">核心技能培养</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">与2025年金融市场需求完美匹配</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200 text-center fade-in">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="text-lg font-bold text-blue-900 mb-3">分析与估值能力</h3>
+                    <p class="text-sm text-gray-700">系统学习财务报表、公司金融、各类资产的深入分析，建立严谨分析框架和估值模型</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200 text-center fade-in">
+                    <div class="text-3xl mb-4">📈</div>
+                    <h3 class="text-lg font-bold text-green-900 mb-3">投资组合管理</h3>
+                    <p class="text-sm text-gray-700">从资产配置、风险预算到业绩归因，系统学习构建和管理复杂投资组合的科学与艺术</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border border-red-200 text-center fade-in">
+                    <div class="text-3xl mb-4">🛡️</div>
+                    <h3 class="text-lg font-bold text-red-900 mb-3">风险管理专长</h3>
+                    <p class="text-sm text-gray-700">识别、度量和管理各类金融风险，在日益不确定的全球市场中至关重要</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200 text-center fade-in">
+                    <div class="text-3xl mb-4">⚖️</div>
+                    <h3 class="text-lg font-bold text-purple-900 mb-3">道德职业标准</h3>
+                    <p class="text-sm text-gray-700">将职业道德准则作为课程基石，培养值得信赖的金融专才，满足行业最高道德要求</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8 rounded-xl fade-in">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">市场需求增长</h4>
+                        <p>德勤报告：数据分析能力需求增长76%，信息研究能力增长74%</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">技能匹配度</h4>
+                        <p>CFA培养的4大核心技能与市场需求匹配度达95%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4">数据说话：CFA的压倒性优势</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">基于2025年最新行业数据的全面对比分析</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="text-center fade-in">
+                    <div class="bg-gradient-to-br from-green-400 to-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <div class="text-3xl font-bold counter" data-target="180">$0</div>
+                    <div class="text-sm text-gray-400">CFA平均薪酬(千美元)</div>
+                    <div class="text-xs text-green-400 mt-1">vs CPA $70K (+157%)</div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-gradient-to-br from-blue-400 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <div class="text-3xl font-bold counter" data-target="90">0%</div>
+                    <div class="text-sm text-gray-400">招聘经理优先选择CFA</div>
+                    <div class="text-xs text-blue-400 mt-1">高管职位首选</div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-gradient-to-br from-purple-400 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🌍</span>
+                    </div>
+                    <div class="text-3xl font-bold counter" data-target="190">0K+</div>
+                    <div class="text-sm text-gray-400">全球CFA持证人</div>
+                    <div class="text-xs text-purple-400 mt-1">遍布160+国家</div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🚀</span>
+                    </div>
+                    <div class="text-3xl font-bold counter" data-target="400">0%</div>
+                    <div class="text-sm text-gray-400">AI金融应用增长</div>
+                    <div class="text-xs text-yellow-400 mt-1">CFA完美匹配</div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">薪资对比分析</h3>
+                    <canvas id="salaryChart" width="400" height="300"></canvas>
+                </div>
+                
+                <div class="space-y-6 fade-in">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h4 class="text-lg font-semibold mb-2 text-yellow-400">市场趋势数据</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• ESG资产规模突破$50万亿</li>
+                            <li>• 另类投资增长23%</li>
+                            <li>• 金融科技融资增长68%</li>
+                            <li>• 量化投资需求激增</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h4 class="text-lg font-semibold mb-2 text-blue-400">就业优势</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• 76%投资岗位优先考虑CFA</li>
+                            <li>• 顶级投行90%要求CFA</li>
+                            <li>• 平均晋升速度快2.3年</li>
+                            <li>• 全球流动性更强</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="fade-in">
+                <img src="images/achievement.jpg" alt="成就" class="w-32 h-32 rounded-full mx-auto mb-8 shadow-2xl">
+                <h2 class="text-4xl font-bold mb-6">选择CFA，把握未来金融发展机遇</h2>
+                <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+                    面向2025年及未来，如果您立志于投资管理、资产配置、金融创新的前沿阵地，CFA无疑是更具战略价值的选择。它不仅提供与未来趋势同步的知识技能，更能开启通往全球顶级金融机构的大门。
+                </p>
+                <a href="#hero" class="inline-block bg-yellow-500 text-blue-900 px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                    开始您的CFA之旅，成就金融精英梦想
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-lg mb-4">© 2025 CFA vs CPA 对比分析 | 基于最新行业数据制作</p>
+            <p class="text-sm text-gray-500">数据来源：德勤、普华永道、BCG、CFA协会官方报告</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-fixed');
+            } else {
+                navbar.classList.remove('nav-fixed');
+            }
+            
+            // Progress bar
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.transform = `scaleX(${scrollPercent / 100})`;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (counter.textContent.includes('K+')) {
+                        counter.textContent = Math.floor(current) + 'K+';
+                    } else if (counter.textContent.includes('%')) {
+                        counter.textContent = Math.floor(current) + '%';
+                    } else if (counter.textContent.includes('$')) {
+                        counter.textContent = '$' + Math.floor(current);
+                    } else {
+                        counter.textContent = Math.floor(current) + '%';
+                    }
+                }, 16);
+            });
+        }
+
+        // Trigger counter animation when statistics section is visible
+        const statsSection = document.getElementById('statistics');
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+
+        // Chart.js salary comparison
+        window.addEventListener('load', function() {
+            const ctx = document.getElementById('salaryChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['初级职位', '中级职位', '高级职位', '执行级'],
+                    datasets: [{
+                        label: 'CFA持证人',
+                        data: [85, 130, 180, 267],
+                        backgroundColor: 'rgba(34, 197, 94, 0.8)',
+                        borderColor: 'rgba(34, 197, 94, 1)',
+                        borderWidth: 2
+                    }, {
+                        label: 'CPA持证人',
+                        data: [45, 65, 85, 120],
+                        backgroundColor: 'rgba(156, 163, 175, 0.8)',
+                        borderColor: 'rgba(156, 163, 175, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'white',
+                                callback: function(value) {
+                                    return '$' + value + 'K';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'white'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Load data from JSON file
+        fetch('data/cfa_vs_cpa_data.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data loaded successfully:', data);
+                // Data is already integrated into the HTML, this is for future dynamic updates
+            })
+            .catch(error => {
+                console.log('Using fallback data due to:', error);
+            });
+    </script>
+
+<style>
+#minimax-floating-ball {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 12px;
+  background: #222222;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: #F8F8F8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#minimax-floating-ball:hover {
+  transform: translateY(-2px);
+  background: #383838;
+}
+
+.minimax-ball-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minimax-logo-wave {
+  width: 26px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='22' viewBox='0 0 26 22' fill='none'%3E%3Cg clip-path='url(%23clip0_3442_102412)'%3E%3Cpath d='M12.8405 14.6775C12.8405 14.9897 13.0932 15.2424 13.4055 15.2424C13.7178 15.2424 13.9705 14.9897 13.9705 14.6775V2.98254C13.9705 1.88957 13.0809 1 11.9879 1C10.895 1 10.0054 1.88957 10.0054 2.98254V11.566V17.1068C10.0054 17.5773 9.62327 17.9594 9.1528 17.9594C8.68233 17.9594 8.30021 17.5773 8.30021 17.1068V8.04469C8.30021 6.95172 7.41063 6.06215 6.31767 6.06215C5.22471 6.06215 4.33513 6.95172 4.33513 8.04469V11.8855C4.33513 12.3559 3.953 12.7381 3.48254 12.7381C3.01207 12.7381 2.62994 12.3559 2.62994 11.8855V10.4936C2.62994 10.1813 2.37725 9.92861 2.06497 9.92861C1.7527 9.92861 1.5 10.1813 1.5 10.4936V11.8855C1.5 12.9784 2.38957 13.868 3.48254 13.868C4.5755 13.868 5.46508 12.9784 5.46508 11.8855V8.04469C5.46508 7.57422 5.8472 7.19209 6.31767 7.19209C6.78814 7.19209 7.17026 7.57422 7.17026 8.04469V17.1068C7.17026 18.1998 8.05984 19.0894 9.1528 19.0894C10.2458 19.0894 11.1353 18.1998 11.1353 17.1068V2.98254C11.1353 2.51207 11.5175 2.12994 11.9879 2.12994C12.4584 2.12994 12.8405 2.51207 12.8405 2.98254V14.6775Z' fill='%23F8F8F8'/%3E%3Cpath d='M23.3278 6.06215C22.2348 6.06215 21.3452 6.95172 21.3452 8.04469V15.6143C21.3452 16.0847 20.9631 16.4669 20.4926 16.4669C20.0222 16.4669 19.6401 16.0847 19.6401 15.6143V2.98254C19.6401 1.88957 18.7505 1 17.6575 1C16.5645 1 15.675 1.88957 15.675 2.98254V19.0175C15.675 19.4879 15.2928 19.8701 14.8224 19.8701C14.3519 19.8701 13.9698 19.4879 13.9698 19.0175V17.0329C13.9698 16.7206 13.7171 16.4679 13.4048 16.4679C13.0925 16.4679 12.8398 16.7206 12.8398 17.0329V19.0175C12.8398 20.1104 13.7294 21 14.8224 21C15.9153 21 16.8049 20.1104 16.8049 19.0175V2.98254C16.8049 2.51207 17.187 2.12994 17.6575 2.12994C18.128 2.12994 18.5101 2.51207 18.5101 2.98254V15.6143C18.5101 16.7072 19.3997 17.5968 20.4926 17.5968C21.5856 17.5968 22.4752 16.7072 22.4752 15.6143V8.04469C22.4752 7.57422 22.8573 7.19209 23.3278 7.19209C23.7982 7.19209 24.1804 7.57422 24.1804 8.04469V14.6775C24.1804 14.9897 24.4331 15.2424 24.7453 15.2424C25.0576 15.2424 25.3103 14.9897 25.3103 14.6775V8.04469C25.3103 6.95172 24.4207 6.06215 23.3278 6.06215Z' fill='%23F8F8F8'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3442_102412'%3E%3Crect width='25' height='22' fill='white' transform='translate(0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.minimax-ball-text {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.minimax-close-icon {
+  margin-left: 8px;
+  font-size: 16px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.minimax-close-icon:hover {
+  opacity: 1;
+}
+
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initFloatingBall); 
+</script>
+
+</body>
+</html>
